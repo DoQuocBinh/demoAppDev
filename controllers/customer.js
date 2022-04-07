@@ -28,7 +28,8 @@ router.get('/addCart',(req,res)=>{
     //neu khach hang da mua it nhat 1 sp
     const dict2 = req.session["cart"]
     for (var key in dict2) {
-        spDaMua.push({ masp: key, 'soLuong': dict2[key] })
+        const productName = products.find(p=>p.id==key).name
+        spDaMua.push({ masp: key,'name':productName, 'soLuong': dict2[key] })
     }
     res.render('myCart',{'cart':spDaMua})
 
