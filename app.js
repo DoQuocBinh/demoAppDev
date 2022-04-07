@@ -19,6 +19,10 @@ const adminController = require('./controllers/admin')
 app.use('/admin', adminController)
 
 
+const customerController = require('./controllers/customer')
+app.use('/customer', customerController)
+
+
 const PORT = process.env.PORT || 5000
 app.listen(PORT)
 console.log("Server is running! " + PORT)
