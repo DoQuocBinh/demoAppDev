@@ -1,7 +1,25 @@
 const express = require('express')
 const async = require('hbs/lib/async')
 const router = express.Router()
-const {insertObject,checkUserRole,USER_TABLE_NAME} = require('../databaseHandler')
+const {insertObject,checkUserRole,USER_TABLE_NAME, BOOK_TABLE_NAME} = require('../databaseHandler')
+
+router.post('/newbook', async (req,res)=>{
+    const title = req.body.txtTitle
+    const author = req.body.txtAuthor
+
+    const objectToInsert = {
+        'title': title,
+        'author':author
+    }
+    //goi ham insert: bang Users, new user trong objectToInsert
+    insertObject(BOOK_TABLE_NAME,objectToInsert)
+    res.render('home')
+
+})
+
+router.get('/newbook',(req,res)=>{
+    res.render('newbook')
+})
 
 //neu request la: /admin/register
 router.get('/register',(req,res)=>{

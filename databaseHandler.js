@@ -31,5 +31,6 @@ async function  checkUserRole(nameI,passI){
 }
 
 const USER_TABLE_NAME = "Users"
+const BOOK_TABLE_NAME = "Books"
 
-module.exports = {insertObject,checkUserRole,USER_TABLE_NAME}
+module.exports = {insertObject,checkUserRole,USER_TABLE_NAME,BOOK_TABLE_NAME}
